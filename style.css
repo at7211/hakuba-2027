@@ -837,23 +837,26 @@ a:hover {
   background: var(--bg-card);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: 28px;
   backdrop-filter: blur(16px);
   box-shadow: var(--shadow-subtle);
+  overflow: hidden;
 }
 
 .calc-comparison-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 20px;
   margin-bottom: 24px;
 }
 
 .plan-card {
   border-radius: var(--radius-md);
-  padding: 24px;
+  padding: 22px 20px;
   display: flex;
   flex-direction: column;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .plan-card.plan-resorts {
@@ -867,7 +870,7 @@ a:hover {
 }
 
 .plan-header {
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .plan-badge {
@@ -890,9 +893,10 @@ a:hover {
 }
 
 .plan-title {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #fff;
+  line-height: 1.35;
 }
 
 .plan-price-block {
@@ -902,36 +906,85 @@ a:hover {
 .price-big {
   font-size: 2.2rem;
   font-weight: 800;
+  line-height: 1.2;
 }
 
 .plan-card.plan-resorts .price-big { color: var(--accent-gold); }
 .plan-card.plan-pass .price-big { color: #f87171; }
 
 .price-sub {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
+  line-height: 1.4;
+  margin-top: 4px;
 }
 
 .plan-list {
   list-style: none;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: var(--text-muted);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
 }
 
 .plan-list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
+  line-height: 1.45;
+}
+
+.plan-list-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.calc-controls-wrap {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.calc-control-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-glass);
+}
+
+.calc-control-item label {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.calc-control-item input[type="range"] {
+  accent-color: var(--accent-gold);
+  width: 120px;
+  cursor: pointer;
+}
+
+.calc-control-item span {
+  font-weight: 700;
+  color: #fff;
+  min-width: 42px;
+  font-size: 0.95rem;
 }
 
 .calc-savings-banner {
-  background: linear-gradient(90deg, rgba(245, 158, 11, 0.18), rgba(217, 119, 6, 0.18));
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(217, 119, 6, 0.14));
   border: 1px solid rgba(245, 158, 11, 0.4);
   border-radius: var(--radius-md);
-  padding: 18px 24px;
+  padding: 18px 22px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -939,16 +992,41 @@ a:hover {
   gap: 14px;
 }
 
+.calc-savings-info {
+  flex: 1 1 260px;
+}
+
 .savings-text {
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: #fff;
+  line-height: 1.35;
+  margin-bottom: 3px;
+}
+
+.savings-subtext {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.calc-savings-result {
+  text-align: right;
+  flex: 0 0 auto;
 }
 
 .savings-amount {
   font-size: 1.8rem;
   font-weight: 800;
   color: var(--accent-gold);
+  line-height: 1.2;
+}
+
+.savings-twd {
+  font-size: 0.92rem;
+  color: #fde68a;
+  font-weight: 600;
+  margin-top: 2px;
 }
 
 /* ==========================================================================
@@ -1306,10 +1384,54 @@ footer {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 1.8rem; }
+  .hero h1 { font-size: 1.7rem; }
   .resorts-grid { grid-template-columns: 1fr; }
   .rental-grid { grid-template-columns: 1fr; }
-  .calc-comparison-grid { grid-template-columns: 1fr; }
+  
+  /* Calculator Mobile Strict Protection */
+  .calc-card { padding: 14px 12px; }
+  .calc-comparison-grid { grid-template-columns: 1fr; gap: 14px; }
+  .plan-card { padding: 16px 14px; }
+  .plan-title { font-size: 1.12rem; }
+  .price-big { font-size: 1.7rem; }
+  .price-sub { font-size: 0.8rem; }
+  .plan-list { gap: 8px; }
+  .plan-list li { font-size: 0.82rem; }
+  
+  .calc-controls-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .calc-control-item {
+    justify-content: space-between;
+    padding: 8px 12px;
+  }
+  .calc-control-item input[type="range"] {
+    flex: 1;
+    margin: 0 10px;
+    width: auto;
+  }
+  
+  .calc-savings-banner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px;
+    gap: 10px;
+  }
+  .savings-text { font-size: 1rem; }
+  .savings-subtext { font-size: 0.78rem; }
+  .calc-savings-result {
+    text-align: left;
+    border-top: 1px dashed rgba(245, 158, 11, 0.3);
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .savings-amount { font-size: 1.5rem; }
+  .savings-twd { font-size: 0.88rem; }
+  
   #map { height: 380px; }
   .controls-wrap { flex-direction: column; align-items: stretch; }
   .sort-search-group { justify-content: space-between; }

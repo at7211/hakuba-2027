@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
   <!-- App Stylesheet (Style C: Cozy Aprés & Minimalist Graphite, with Cache-Buster) -->
-  <link rel="stylesheet" href="style.css?v=20270118_e">
+  <link rel="stylesheet" href="style.css?v=20270118_f">
 
   <!-- Mobile Web App & Home Screen Shortcut Settings -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,7 +47,7 @@
         <button class="nav-btn" data-target="rental-section">🎿 雪具租賃指南</button>
         <button class="nav-btn" data-target="calc-section">🎫 早鳥試算（省 9.4 萬日圓）</button>
         <button class="nav-btn" data-target="drive-section">⚠️ 大町自駕安全</button>
-        <button class="nav-btn" data-target="deploy-section">🌐 同伴分享與發布</button>
+        <button class="nav-btn" data-target="deploy-section">📱 加到主畫面</button>
       </nav>
     </div>
   </header>
@@ -143,7 +143,7 @@
       </div>
     </section>
 
-    <!-- 5. Ticket Strategy & Calculator Section -->
+    <!-- 5. Ticket Strategy & Calculator Section (Mobile-Protected) -->
     <section id="calc-section" class="calculator-section">
       <div class="section-title-wrap">
         <h2 class="section-title">🎫 早鳥票試算器：打破「全山券」迷思</h2>
@@ -164,10 +164,10 @@
               <div class="price-sub">8 人 3 天總花費（平均每人僅約 ¥19,300–¥20,400）</div>
             </div>
             <ul class="plan-list">
-              <li>✔ 栂池（早鳥 <strong>¥6,500</strong>，SURF&SNOW / WAmazing 搶購）</li>
-              <li>✔ 八方尾根（早鳥平均 <strong>¥8,300</strong>，WAmazing / Snownavi 搶購）</li>
-              <li>✔ Cortina（<strong>¥5,500</strong>）/ 岩岳（<strong>¥5,700</strong>）/ 鹿島槍（<strong>¥4,500</strong>）</li>
-              <li>✔ 彈性最高，不用連續使用，免換場舟車勞頓</li>
+              <li><span class="plan-list-icon">✔</span><span>栂池（早鳥 <strong>¥6,500</strong>，SURF&SNOW / WAmazing 搶購）</span></li>
+              <li><span class="plan-list-icon">✔</span><span>八方尾根（早鳥平均 <strong>¥8,300</strong>，WAmazing / Snownavi 搶購）</span></li>
+              <li><span class="plan-list-icon">✔</span><span>Cortina（<strong>¥5,500</strong>）/ 岩岳（<strong>¥5,700</strong>）/ 鹿島槍（<strong>¥4,500</strong>）</span></li>
+              <li><span class="plan-list-icon">✔</span><span>彈性最高，不用連續使用，免換場舟車勞頓</span></li>
             </ul>
           </div>
 
@@ -182,38 +182,38 @@
               <div class="price-sub">8 人 3 天總花費（成人每人固定 ¥32,200）</div>
             </div>
             <ul class="plan-list">
-              <li>✖ 需連續 3 日使用，天候不佳或中途休滑無法退費</li>
-              <li>✖ 溢價包含了接駁巴士費用（本團自駕完全享受不到）</li>
-              <li>✖ 自駕換場需重新著裝拆雪板，一日換場極不切實際</li>
-              <li>✖ 8 人同行比買早鳥票整整多花接近 10 萬日圓</li>
+              <li><span class="plan-list-icon">✖</span><span>需連續 3 日使用，天候不佳或中途休滑無法退費</span></li>
+              <li><span class="plan-list-icon">✖</span><span>溢價包含了接駁巴士費用（本團自駕完全享受不到）</span></li>
+              <li><span class="plan-list-icon">✖</span><span>自駕換場需重新著裝拆雪板，一日換場極不切實際</span></li>
+              <li><span class="plan-list-icon">✖</span><span>8 人同行比買早鳥票整整多花接近 10 萬日圓</span></li>
             </ul>
           </div>
 
         </div>
 
-        <!-- Dynamic Controls -->
-        <div style="display: flex; gap: 24px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <label style="font-weight: 600; color: var(--text-muted);">人數：</label>
-            <input type="range" id="calc-people" min="1" max="12" value="8" style="accent-color: var(--accent-gold); width: 120px;">
-            <span id="calc-people-val" style="font-weight: 700; color: #fff; min-width: 45px;">8 人</span>
+        <!-- Dynamic Controls (Mobile-Responsive Flex) -->
+        <div class="calc-controls-wrap">
+          <div class="calc-control-item">
+            <label>同行人數：</label>
+            <input type="range" id="calc-people" min="1" max="12" value="8">
+            <span id="calc-people-val">8 人</span>
           </div>
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <label style="font-weight: 600; color: var(--text-muted);">滑雪天數：</label>
-            <input type="range" id="calc-days" min="1" max="3" value="3" style="accent-color: var(--accent-gold); width: 120px;">
-            <span id="calc-days-val" style="font-weight: 700; color: #fff; min-width: 45px;">3 天</span>
+          <div class="calc-control-item">
+            <label>滑雪天數：</label>
+            <input type="range" id="calc-days" min="1" max="3" value="3">
+            <span id="calc-days-val">3 天</span>
           </div>
         </div>
 
-        <!-- Savings Banner -->
+        <!-- Savings Banner (Mobile-Responsive Column) -->
         <div class="calc-savings-banner">
-          <div>
+          <div class="calc-savings-info">
             <div class="savings-text">💰 8 人選擇「精選早鳥票方案」預估總省下：</div>
-            <div style="font-size: 0.85rem; color: var(--text-muted);">省下的費用能讓 8 個人在白馬享受一頓奢華信州黑毛和牛居酒屋大餐！</div>
+            <div class="savings-subtext">省下的費用能讓 8 個人在白馬享受一頓奢華信州黑毛和牛居酒屋大餐！</div>
           </div>
-          <div style="text-align: right;">
+          <div class="calc-savings-result">
             <div class="savings-amount" id="calc-savings-total">¥94,400</div>
-            <div style="font-size: 0.95rem; color: #fde68a; font-weight: 600;" id="calc-savings-twd">約 NT$ 20,300</div>
+            <div class="savings-twd" id="calc-savings-twd">約 NT$ 20,300</div>
           </div>
         </div>
       </div>
@@ -263,61 +263,58 @@
       </div>
     </section>
 
-    <!-- 7. Deploy & Companion Sharing Section (免費放網頁給同伴看) -->
+    <!-- 7. Mobile Home Screen Shortcut Section (加到手機主畫面) -->
     <section id="deploy-section" class="deploy-guide-section">
       <div class="section-title-wrap">
-        <h2 class="section-title">🌐 免費分享給同伴看 ＆ 即時更新方法</h2>
-        <p class="section-subtitle">零費用、免伺服器設定，三種方式讓 8 位同行夥伴隨時用手機查看最新雪場資訊！</p>
+        <h2 class="section-title">📱 加到手機主畫面（像 App 一樣隨開即用）</h2>
+        <p class="section-subtitle">免去商店下載！只需 5 秒將本指南加入手機桌面，全螢幕無干擾，每次點開自動同步最新資訊</p>
       </div>
 
       <div class="deploy-card">
-        <div class="deploy-step-box">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <strong style="color:var(--accent-gold); font-size:1.1rem;">🔥 方案 1：Netlify Drop（最簡單！0 程式碼、拖曳 10 秒發布）</strong>
-            <span style="font-size:0.75rem; background:rgba(245,158,11,0.2); color:#fbbf24; padding:2px 8px; border-radius:9999px;">推薦初學者</span>
+        <!-- Mobile Home Screen Steps -->
+        <div class="deploy-step-box" style="border-left-color: #10b981; margin-bottom: 18px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <strong style="color:#34d399; font-size:1.15rem;">📲 雙系統 5 秒加入手機桌面步驟</strong>
+            <span style="font-size:0.75rem; background:rgba(16,185,129,0.2); color:#6ee7b7; padding:2px 8px; border-radius:9999px;">全團必備</span>
           </div>
-          <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:8px;">
-            1. 用瀏覽器打開 <a href="https://app.netlify.com/drop" target="_blank" rel="noopener"><strong>app.netlify.com/drop</strong></a>（免費免綁卡）。<br>
-            2. 直接把電腦上的整包 <code>d:\antigravity\hakuba</code> 資料夾拖拉進去。<br>
-            3. 10 秒內立刻產生公開專屬網址（例如 <code>https://hakuba-2027.netlify.app</code>），傳到 LINE 群組大家手機秒開！<br>
-            4. <strong>後續更新時</strong>：只要在後台點「Deploys」，把修改後的資料夾再次拖曳進去，即可瞬間全網更新。
-          </p>
-        </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 12px;">
+            <!-- iPhone -->
+            <div style="background: rgba(0, 0, 0, 0.25); padding: 16px; border-radius: var(--radius-sm); border: 1px solid rgba(255, 255, 255, 0.06);">
+              <h4 style="color: #fff; font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                🍎 <strong>iPhone（Safari 瀏覽器）</strong>
+              </h4>
+              <ol style="margin: 0; padding-left: 18px; font-size: 0.86rem; color: var(--text-muted); line-height: 1.65;">
+                <li>在 Safari 打開本網站</li>
+                <li>點螢幕正下方「<strong>分享按鈕</strong>」（方形帶向上箭頭 ⎋）</li>
+                <li>往下滑動點選「<strong>加入主畫面</strong>」</li>
+                <li>點右上角「<strong>新增</strong>」即完成！</li>
+              </ol>
+            </div>
 
-        <div class="deploy-step-box" style="border-left-color: #3b82f6;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <strong style="color:#60a5fa; font-size:1.1rem;">⚡ 方案 2：GitHub Pages（全自動更新，工程師/Git 使用者首選）</strong>
-            <span style="font-size:0.75rem; background:rgba(59,130,246,0.2); color:#93c5fd; padding:2px 8px; border-radius:9999px;">全自動同步</span>
-          </div>
-          <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom: 8px;">
-            <strong>【網頁端直接上傳（免裝 Git，最推薦）】</strong>：<br>
-            1. 登入 <a href="https://github.com" target="_blank" rel="noopener"><strong>GitHub.com</strong></a> 點右上角「+」➜「New repository」，輸入名稱（如 <code>hakuba-2027</code>），設為 Public，點 Create。<br>
-            2. 在新頁面中點選「uploading an existing file」，直接將本資料夾內的所有檔案拖拉進去，點下方綠色按鈕「Commit changes」。<br>
-            3. 點上方「Settings」➜ 左側「Pages」➜ Branch 選 <code>main</code> 點 Save。<br>
-            4. 約 30 秒即自動生成專屬永久網址：<code>https://&lt;你的帳號&gt;.github.io/hakuba-2027/</code>！<br>
-            <strong>【後續更新】</strong>：在 GitHub 頁面點「Add file」➜「Upload files」把改好的新檔案拉進去覆蓋，GitHub 會在 20 秒內自動更新上線！
-          </p>
-        </div>
-
-        <!-- Mobile Home Screen Shortcut Box -->
-        <div class="deploy-step-box" style="border-left-color: #10b981;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <strong style="color:#34d399; font-size:1.1rem;">📱 加到手機主畫面（像原生 App 一樣打開、自動持續更新）</strong>
-            <span style="font-size:0.75rem; background:rgba(16,185,129,0.2); color:#6ee7b7; padding:2px 8px; border-radius:9999px;">超方便！免安裝 App</span>
-          </div>
-          <div style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">
-            <strong>加到手機桌面只需 5 秒鐘：</strong><br>
-            • <strong>iPhone (Safari)</strong>：打開專屬網址 ➜ 點瀏覽器下方「分享」圖示（方形帶箭頭）➜ 滑動點選「<strong>加入主畫面</strong>」➜ 點右上角「新增」。<br>
-            • <strong>Android (Chrome)</strong>：打開專屬網址 ➜ 點右上角「三個點選單」➜ 點選「<strong>加到主畫面</strong>」或「安裝應用程式」。<br>
-            <div style="margin-top:6px; color:#fde68a;">
-              ✨ <strong>加到主畫面會自動更新嗎？會！</strong> 手機桌面圖示本質是全螢幕 Web App，我們已內建無快取標頭。每次同伴點開圖示，系統都會自動聯網抓取最新雪場與租具資料，完全不需要手動更新或重新加入！
+            <!-- Android -->
+            <div style="background: rgba(0, 0, 0, 0.25); padding: 16px; border-radius: var(--radius-sm); border: 1px solid rgba(255, 255, 255, 0.06);">
+              <h4 style="color: #fff; font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                🤖 <strong>Android（Chrome 瀏覽器）</strong>
+              </h4>
+              <ol style="margin: 0; padding-left: 18px; font-size: 0.86rem; color: var(--text-muted); line-height: 1.65;">
+                <li>在 Chrome 打開本網站</li>
+                <li>點螢幕右上角「<strong>三個點選單（⋮）</strong>」</li>
+                <li>點選「<strong>加到主畫面</strong>」或「<strong>安裝應用程式</strong>」</li>
+                <li>點「<strong>新增 / 安裝</strong>」即完成！</li>
+              </ol>
             </div>
           </div>
         </div>
 
-        <div style="background: rgba(245, 158, 11, 0.08); border-radius: var(--radius-sm); padding: 14px; border: 1px solid rgba(245, 158, 11, 0.25); font-size: 0.85rem; color: #fde68a;">
-          📲 <strong>已內建手機防快取機制（Cache Busting）</strong>：<br>
-          我們在網頁引入 JS 和 CSS 時已配置主動版本參數（<code>?v=...</code>）與無快取 HTTP 標頭。未來我們任何文字或價格更新，同伴在手機上點開連結都能 100% 抓到最新即時資訊，不會被手機舊快取卡住！
+        <!-- Real-time Sync Benefit Box -->
+        <div style="background: rgba(245, 158, 11, 0.08); border-radius: var(--radius-sm); padding: 16px 18px; border: 1px solid rgba(245, 158, 11, 0.25); font-size: 0.88rem; color: #fde68a; line-height: 1.6;">
+          <div style="font-weight: 700; color: var(--accent-gold); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; font-size: 0.95rem;">
+            <span>✨</span> <span>加到主畫面後，會持續自動更新嗎？</span>
+          </div>
+          <div>
+            <strong>會！而且完全自動！</strong> 手機桌面圖示本質是全螢幕 Web App，已內建無快取標頭。每次大家從手機主畫面點開圖示，系統都會自動聯網抓取最新的雪況、早鳥票與租具資訊，<strong>完全不需要重新加入或手動更新，也絕不會卡在舊快取！</strong>
+          </div>
         </div>
       </div>
     </section>
@@ -369,7 +366,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <!-- App Data and Logic (With Cache Busting Parameters) -->
-  <script src="data.js?v=20270118_e"></script>
-  <script src="app.js?v=20270118_e"></script>
+  <script src="data.js?v=20270118_f"></script>
+  <script src="app.js?v=20270118_f"></script>
 </body>
 </html>
