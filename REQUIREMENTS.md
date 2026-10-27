@@ -105,5 +105,7 @@
 5. **[app.js](file:///d:/antigravity/hakuba/app.js)**：Leaflet 互動地圖（無 API Key 限制之 Esri Dark Gray 與 GSI Japan 淡色圖層）、卡片篩選排序、早鳥票與全山券試算器（省 9.4 萬日圓）、租具卡片渲染。
 
 ## 7. 最新功能升級（2026/10/28）
-- **雪具租賃指南升級**：依據 Sunshine Hakuba、Japow Project、Snowboardmap 權威資料，整合白馬 5 大租借店（重點加入 **Sunshine Hakuba 日和 Rental** 的繁中LINE客服、前一天14:00提前取板、民宿乾燥室拍照退還三大自駕利多）。
-- **Git 即時同步機制確認**：確認 GitHub Pages 結合主動版本防快取（`?v=...`），支援 `git push` 後 20–30 秒內全網自動部署更新，同伴手機端 100% 抓取最新內容。
+- **公開線上正式上線**：[https://mm920066.github.io/hakuba-2027/](https://mm920066.github.io/hakuba-2027/)
+- **手機端排版防破版修復**：徹底重構「早鳥票試算器：打破全山券迷思」手機版佈局，採用響應式單欄、滑桿全寬卡片化、省錢橫幅垂直響應，防止任何寬度截斷或錯位。
+- **分享區塊全面簡化**：移除技術性 Netlify/Git 教學，專注呈現 **iPhone (Safari)** 與 **Android (Chrome)** 5 秒加到主畫面圖解與自動即時同步優勢。
+- **雪具租賃指南升級**：整合白馬 5 大租借店（Sunshine Hakuba、Spicy、Rhythm、Central、Woody），全面標出各家「⚡ 可選進階方案（旗艦板型/FASE快穿/Burton Step On/Demo粉雪款）」。
