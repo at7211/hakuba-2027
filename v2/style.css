@@ -69,11 +69,15 @@ html:not(.js) .cover + .cover, .hero--rest .cover + .cover { margin-top: 24px; }
 html:not(.js) .hero__lead, .hero--rest .hero__lead { position: static; margin: 40px var(--margin) 0; }
 html:not(.js) .hero__action, .hero--rest .hero__action { position: static; margin: 24px var(--margin) 0; }
 @media (max-width: 47.99em) {
+  /* phone: a column, not absolute boxes — the cover takes whatever height is left, so nothing can overlap */
   .hero__wrap { height: 280svh; }
-  .hero__title { top: 72px; font-size: 17vw; }
-  .hero__covers { top: 150px; bottom: auto; left: 16px; right: 16px; width: auto; transform: none; aspect-ratio: 2 / 3; max-height: calc(100svh - 300px); }
-  .hero__lead { bottom: 24px; right: 150px; max-width: none; font-size: 18px; }
-  .hero__action { bottom: 24px; }
+  .hero__stage { display: flex; flex-direction: column; padding: 76px var(--margin) 24px; }
+  .hero__title { position: static; font-size: 17vw; }
+  .hero__covers { position: relative; inset: auto; flex: 1 1 auto; min-height: 120px; width: auto; margin-top: 16px; transform: none; }
+  .hero__foot { display: flex; align-items: flex-end; gap: 16px; margin-top: 20px; }
+  .hero__lead { position: static; flex: 1 1 auto; max-width: none; font-size: 18px; }
+  .hero__action { position: static; flex: 0 0 auto; }
+  .hero--rest .hero__foot { display: block; }
 }
 
 /* ---------- INTRO: right-half paragraph, lone picture ---------- */
